@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tạo tài khoản ExpiryCheck để lưu và quản lý hạn sử dụng sản phẩm."
+    />
+    <meta
+      name="keywords"
+      content="đăng ký ExpiryCheck, tạo tài khoản, quản lý hạn sử dụng, lưu sản phẩm"
+    />
+    <meta name="theme-color" content="#0f8f83" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <title>Đăng ký ExpiryCheck</title>
+    <link rel="stylesheet" href="assets/css/dangky.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="login-body ec-min-h-screen">
+    <main class="login-box ec-w-[calc(100%-2rem)] ec-max-w-[445px]" aria-labelledby="registerTitle">
+      <a class="login-logo ec-no-underline ec-text-inherit" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+        <h2>ExpiryCheck</h2>
+      </a>
+
+      <h1 id="registerTitle" data-i18n="register_title">
+        Đăng Ký Tài Khoản
+      </h1>
+      <p class="local-profile-note" data-i18n="auth_local_note">
+        Hồ sơ và dữ liệu chỉ được lưu trên trình duyệt của thiết bị này.
+      </p>
+      <form id="registerForm">
+        <div class="input">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          <input
+            type="text"
+            id="fullName"
+            name="name"
+            placeholder="Họ và tên"
+            autocomplete="name"
+            minlength="2"
+            maxlength="80"
+            aria-label="Họ và tên"
+            aria-describedby="errorMsg"
+            required
+            autofocus
+            data-i18n-placeholder="register_fullname_ph"
+          />
+        </div>
+        <div class="input">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Tên đăng nhập"
+            autocomplete="username"
+            autocapitalize="none"
+            spellcheck="false"
+            minlength="3"
+            maxlength="32"
+            pattern="[^\s&lt;&gt;&quot;']+"
+            aria-label="Tên đăng nhập"
+            aria-describedby="errorMsg"
+            required
+            data-i18n-placeholder="register_username_ph"
+          />
+        </div>
+        <div class="input">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            autocomplete="email"
+            inputmode="email"
+            maxlength="254"
+            aria-label="Email"
+            aria-describedby="errorMsg"
+            required
+            data-i18n-placeholder="register_email_ph"
+          />
+        </div>
+        <div class="input">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          <input
+            type="password"
+            id="password"
+            name="new-password"
+            placeholder="Mật khẩu"
+            autocomplete="new-password"
+            minlength="8"
+            maxlength="128"
+            aria-label="Mật khẩu mới, từ 8 đến 128 ký tự"
+            aria-describedby="errorMsg"
+            required
+            data-i18n-placeholder="register_password_ph"
+          />
+        </div>
+        <div class="input">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirm-password"
+            placeholder="Nhập lại mật khẩu"
+            autocomplete="new-password"
+            minlength="8"
+            maxlength="128"
+            aria-label="Nhập lại mật khẩu"
+            aria-describedby="errorMsg"
+            required
+            data-i18n-placeholder="register_confirm_password_ph"
+          />
+        </div>
+
+        <p
+          class="error-msg"
+          id="errorMsg"
+          role="alert"
+          aria-live="polite"
+        ></p>
+        <button
+          type="submit"
+          id="registerSubmit"
+          data-i18n="register_submit_btn"
+        >
+          Đăng ký
+        </button>
+        <p>
+          <span data-i18n="register_has_account">Đã có tài khoản</span>
+          <a
+            href="dangnhap.html"
+            id="loginLink"
+            data-i18n="register_login_link"
+            >Đăng nhập</a
+          >
+        </p>
+      </form>
+    </main>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/auth-pages.js"></script>
+  </body>
+</html>
