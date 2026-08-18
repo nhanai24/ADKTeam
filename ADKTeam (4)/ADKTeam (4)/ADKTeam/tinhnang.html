@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Quản lý sản phẩm, theo dõi hạn sử dụng và lọc nhanh theo trạng thái với ExpiryCheck."
+    />
+    <meta
+      name="keywords"
+      content="quản lý sản phẩm, danh sách hạn sử dụng, lọc sản phẩm, nhắc hết hạn, ExpiryCheck"
+    />
+    <meta name="theme-color" content="#0f8f83" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>ExpiryCheck — Tính Năng</title>
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/tinhnang.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+  </head>
+  <body class="ec-min-h-screen">
+    <header class="header">
+      <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+        <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          <span>ExpiryCheck</span>
+        </a>
+        <nav aria-label="Điều hướng chính">
+          <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="kiemtrahsd.html">Kiểm Tra Ngay</a></li>
+            <li><a href="tinhnang.html" class="active require-login" aria-current="page">Tính Năng</a></li>
+            <li><a href="huongdan.html">Hướng Dẫn</a></li>
+            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+            <li><a href="hotro.html" data-i18n="nav_support">Hỗ Trợ</a></li>
+          </ul>
+          </nav>
+            <div id="navAuth">
+            <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+            <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+          </div>
+      </div>
+      <div class="hero">
+        <div class="hero-text">
+          <h1 data-i18n="features_hero_title">Quản Lý Sản Phẩm &amp; Hạn Sử Dụng</h1>
+          <p data-i18n="features_hero_desc">
+            Thêm, sửa, xóa sản phẩm; lọc theo trạng thái hạn dùng và tra cứu
+            nhanh theo tên — tất cả tại một nơi.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="ec-w-full">
+      <!-- STATS -->
+      <section class="stats-row" id="statsRow" aria-label="Tổng quan trạng thái sản phẩm"></section>
+
+      <!-- PRODUCTS PANEL -->
+      <section class="panel" aria-labelledby="productsTableCaption">
+        <div class="toolbar ec-grid ec-grid-cols-1 ec-gap-3 md:ec-grid-cols-[minmax(0,1fr)_auto_auto]">
+          <div class="search-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="searchInput"
+              aria-label="Tìm theo tên sản phẩm"
+              placeholder="Tìm theo tên sản phẩm..."
+              data-i18n-placeholder="features_search_placeholder"
+            />
+          </div>
+          <select class="filter-select" id="categoryFilter" aria-label="Lọc theo danh mục">
+            <option value="all" data-i18n="features_filter_all_cat">Tất cả danh mục</option>
+          </select>
+          <button type="button" class="btn-primary" id="addBtn">
+            <i class="fa-solid fa-plus"></i>
+            <span data-i18n="features_add_btn">Thêm sản phẩm</span>
+          </button>
+        </div>
+        <div class="chip-filters" id="statusChips">
+          <button type="button" class="chip active" data-status="all" data-i18n="features_chip_all">Tất cả</button>
+          <button type="button" class="chip" data-status="ok" data-i18n="features_chip_ok">Còn hạn</button>
+          <button type="button" class="chip" data-status="warn" data-i18n="features_chip_warn">Gần hết hạn</button>
+          <button type="button" class="chip" data-status="bad" data-i18n="features_chip_bad">Hết hạn</button>
+        </div>
+        <section class="table-wrap ec-overflow-x-auto" tabindex="0" aria-label="Danh sách sản phẩm có thể cuộn ngang">
+          <table class="ec-w-full">
+            <caption id="productsTableCaption" class="ec-pb-3 ec-text-left ec-font-bold ec-text-teal-800">
+              Danh sách sản phẩm và trạng thái hạn sử dụng
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="features_th_name">Sản phẩm</th>
+                <th scope="col" data-i18n="features_th_category">Danh mục</th>
+                <th scope="col" data-i18n="features_th_qty">Số lượng</th>
+                <th scope="col" data-i18n="features_th_expiry">Ngày hết hạn</th>
+                <th scope="col" data-i18n="features_th_status">Trạng thái</th>
+                <th scope="col" data-i18n="features_th_action">Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          <div class="empty-state" id="emptyState" hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div data-i18n="features_empty">Không tìm thấy sản phẩm phù hợp.</div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- PRODUCT MODAL -->
+    <div class="overlay" id="productOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-head">
+          <h3 id="modalTitle" data-i18n="features_modal_add_title">Thêm sản phẩm</h3>
+          <button type="button" class="modal-close" id="closeProductModal" aria-label="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <label for="f_name" data-i18n="features_field_name">Tên sản phẩm</label>
+            <input
+              type="text"
+              id="f_name"
+              maxlength="120"
+              placeholder="Ví dụ: Sữa tươi Vinamilk"
+              data-i18n-placeholder="features_field_name_ph"
+            />
+          </div>
+          <div class="field">
+            <label for="f_category" data-i18n="features_field_category">Danh mục</label>
+            <input
+              type="text"
+              id="f_category"
+              maxlength="60"
+              placeholder="Ví dụ: Sữa &amp; Chế phẩm"
+              data-i18n-placeholder="features_field_category_ph"
+            />
+          </div>
+          <div class="field">
+            <label for="f_qty" data-i18n="features_field_qty">Số lượng</label>
+            <input type="number" id="f_qty" min="1" max="999999" placeholder="1" />
+          </div>
+          <div class="field">
+            <label for="f_date" data-i18n="features_field_expiry">Ngày hết hạn</label>
+            <input type="date" id="f_date" />
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="cancelProduct" data-i18n="features_btn_cancel">Hủy</button>
+          <button type="button" class="btn-primary" id="saveProduct" data-i18n="features_btn_save">Lưu sản phẩm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER INFO MODAL -->
+    <div class="overlay" id="userOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+        <div class="modal-head">
+          <h3 id="userModalTitle" data-i18n="user_modal_title">Thông tin người dùng</h3>
+          <button type="button" class="modal-close" id="closeUserModal" aria-label="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="uinfo-avatar" id="uinfoAvatar">TK</div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_fullname">Họ và tên</span><span id="uinfoName">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_username">Tên đăng nhập</span><span id="uinfoUsername">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_email">Email</span><span id="uinfoEmail">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_role">Vai trò</span><span id="uinfoRole">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_joindate">Ngày tham gia</span><span id="uinfoJoinDate">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_count">Số sản phẩm đang quản lý</span><span id="uinfoCount">0</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="closeUserBtn2" data-i18n="user_modal_close">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+    <script src="assets/js/tinhnang.js"></script>
+  </body>
+</html>
