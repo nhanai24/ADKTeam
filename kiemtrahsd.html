@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kiểm tra hạn sử dụng sản phẩm bằng mã vạch hoặc nhập ngày thủ công với ExpiryCheck."
+    />
+    <meta
+      name="keywords"
+      content="kiểm tra hạn sử dụng, quét mã vạch, ngày sản xuất, ngày hết hạn, ExpiryCheck"
+    />
+    <meta name="theme-color" content="#15757c" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Kiểm Tra Hạn Sử Dụng | ExpiryCheck</title>
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/kiemtrangay.css?v=20260816-2" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+  </head>
+  <body class="ec-min-h-screen">
+    <div class="page-header-wrapper">
+      <header>
+        <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+          <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            <span>ExpiryCheck</span>
+          </a>
+          <nav aria-label="Điều hướng chính">
+            <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li>
+                <a href="kiemtrahsd.html" class="active" aria-current="page">Kiểm Tra Ngay</a>
+              </li>
+              <li><a href="tinhnang.html" class="require-login">Tính Năng</a></li>
+              <li><a href="huongdan.html">Hướng Dẫn</a></li>
+              <li><a href="gioithieu.html">Giới Thiệu</a></li>
+              <li><a href="hotro.html" data-i18n="nav_support">Hỗ Trợ</a></li>
+            </ul>
+          </nav>
+          <div id="navAuth">
+            <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+            <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+          </div>
+        </div>
+      </header>
+    </div>
+    <main id="main-content">
+    <section class="hero-bg">
+      <div class="welcome-badge">
+        <i class="fa-solid fa-bolt"></i> <span data-i18n="check_badge">Hệ thống nhận diện thời gian thực</span>
+      </div>
+      <h1 class="hero-text-main" data-i18n="check_hero_title">Kiểm Tra Hạn Sử Dụng</h1>
+    </section>
+    <div class="check-card ec-w-[calc(100%-2rem)] sm:ec-w-[calc(100%-3rem)] lg:ec-max-w-5xl">
+      <h2 class="card-title">
+        <i class="fa-solid fa-clipboard-check"></i> <span data-i18n="check_card_title">KIỂM TRA HẠN SỬ DỤNG SẢN
+        PHẨM</span>
+      </h2>
+
+      <div class="tab-bar ec-grid ec-grid-cols-1 ec-gap-3 sm:ec-grid-cols-2" role="group" aria-label="Phương thức kiểm tra">
+        <button
+          id="btn-tab-scan"
+          class="tab-btn"
+          type="button"
+          aria-controls="scanner-container"
+          aria-pressed="false"
+        >
+          <i class="fa-solid fa-barcode"></i> <span data-i18n="check_tab_scan">Quét Mã Vạch</span>
+        </button>
+        <button
+          id="btn-tab-manual"
+          class="tab-btn active"
+          type="button"
+          aria-controls="manual-form-content"
+          aria-pressed="true"
+        >
+          <i class="fa-solid fa-pen-to-square"></i> <span data-i18n="check_tab_manual">Nhập Thủ Công</span>
+        </button>
+      </div>
+      <div id="scanner-container" aria-hidden="true" inert>
+        <section
+          id="reader"
+          aria-label="Khung camera quét mã vạch"
+          aria-describedby="scannerHint"
+        ></section>
+        <p id="scannerHint" class="scanner-hint">
+          <i class="fa-solid fa-camera"></i> <span data-i18n="check_scan_hint_html">Đưa mã vạch của sản phẩm vào trước
+          khung quét camera để nhận diện tự động.</span>
+        </p>
+        <div
+          id="scanResultInfo"
+          class="scan-result-info"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></div>
+      </div>
+      <div class="manual-form-content" id="manual-form-content">
+        <div class="form-group">
+          <label for="prodName"><i class="fa-solid fa-box-open" aria-hidden="true"></i> <span data-i18n="check_label_name">Tên sản phẩm</span></label>
+          <input
+            type="text"
+            id="prodName"
+            class="form-control"
+            maxlength="200"
+            autocomplete="off"
+            placeholder="Ví dụ: Sữa tươi Vinamilk, Kem chống nắng..."
+            data-i18n-placeholder="check_placeholder_name"
+          />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prodNSX"
+              ><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> <span data-i18n="check_label_nsx">Ngày sản xuất
+              (NSX)</span></label
+            >
+            <input type="date" id="prodNSX" class="form-control" min="1900-01-01" />
+          </div>
+          <div class="form-group">
+            <label for="prodHSD"
+              ><i class="fa-solid fa-calendar-xmark" aria-hidden="true"></i> <span data-i18n="check_label_hsd">Ngày hết hạn
+              (HSD)</span></label
+            >
+            <input type="date" id="prodHSD" class="form-control" min="1900-01-01" />
+          </div>
+        </div>
+
+        <div class="check-buttons">
+          <button id="checkExpiryBtn" class="btn-submit-check" type="button">
+            <i class="fa-solid fa-circle-play"></i>
+            <span data-i18n="check_btn_start">BẮT ĐẦU KIỂM TRA</span>
+          </button>
+
+          <button id="saveProductBtn" class="btn-save-product" type="button">
+            <i class="fa-solid fa-bookmark"></i>
+            <span data-i18n="check_btn_save">LƯU SẢN PHẨM</span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="resultBox"
+        class="result-alert"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+    </div>
+    </main>
+    <div class="overlay" id="userOverlay" aria-hidden="true" inert>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="userModalTitle"
+        tabindex="-1"
+      >
+        <div class="modal-head">
+          <h3 id="userModalTitle" data-i18n="user_modal_title">Thông tin người dùng</h3>
+          <button
+            class="modal-close"
+            id="closeUserModal"
+            type="button"
+            aria-label="Đóng hộp thoại"
+          >&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="uinfo-avatar" id="uinfoAvatar">TK</div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_fullname">Họ và tên</span><span id="uinfoName">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_username">Tên đăng nhập</span><span id="uinfoUsername">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_email">Email</span><span id="uinfoEmail">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_role">Vai trò</span><span id="uinfoRole">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_joindate">Ngày tham gia</span><span id="uinfoJoinDate">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_count">Số sản phẩm đang quản lý</span><span id="uinfoCount">0</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button class="btn-ghost" id="closeUserBtn2" type="button" data-i18n="user_modal_close">Đóng</button>
+        </div>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+    <script src="assets/js/kiemtrangay.js"></script>
+  </body>
+</html>

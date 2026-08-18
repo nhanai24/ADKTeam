@@ -1,0 +1,5 @@
+/*
+ * Nguồn Tailwind dùng cho các utility responsive/layout của ExpiryCheck.
+ * Preflight được tắt trong tailwind.config.js để không thay đổi CSS giao diện hiện có.
+ */
+@tailwind utilities;

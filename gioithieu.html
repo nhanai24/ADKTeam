@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tìm hiểu mục tiêu, cách ExpiryCheck lưu dữ liệu cục bộ và gửi góp ý cho ADK Team."
+    />
+    <meta
+      name="keywords"
+      content="giới thiệu ExpiryCheck, ADK Team, an toàn sản phẩm, bảo vệ sức khỏe, dữ liệu cục bộ"
+    />
+    <meta name="theme-color" content="#0f8f83" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/gioithieu.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Giới Thiệu Về ExpiryCheck</title>
+  </head>
+  <body class="ec-min-h-screen">
+    <header>
+    <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+      <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+        <span>ExpiryCheck</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+       <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+            <li><a href="index.html">Trang Chủ</a></li>
+
+            <li>
+              <a href="kiemtrahsd.html">
+                Kiểm Tra Ngay
+              </a>
+            </li>
+            <li>
+              <a href="tinhnang.html" class="require-login">
+                Tính Năng
+              </a>
+            </li>
+
+            <li>
+              <a href="huongdan.html">
+                Hướng Dẫn
+              </a>
+            </li>
+
+            <li>
+              <a href="gioithieu.html" class="active" aria-current="page">
+                Giới Thiệu
+              </a>
+            </li>
+            <li><a href="hotro.html" data-i18n="nav_support">Hỗ Trợ</a></li>
+          </ul>
+        </nav>
+        <div id="navAuth">
+          <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+          <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+        </div>
+    </div>
+    </header>
+    <main id="main-content">
+    <div class="about-banner">
+      <div class="banner-content">
+        <h1 data-i18n="about_banner_title">Giới thiệu về ExpiryCheck</h1>
+        <p data-i18n="about_banner_desc">Đồng hành cùng bạn trong việc bảo vệ sức khỏe bạn mỗi ngày.</p>
+      </div>
+    </div>
+    <div class="about-page ec-w-[calc(100%-2rem)] lg:ec-max-w-5xl">
+      <h2 data-i18n="about_goals_title">Mục tiêu của website</h2>
+      <ul>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="about_goal1">Hỗ trợ người dùng kiểm tra và theo dõi hạn sử dụng của sản phẩm.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="about_goal2">Giảm nguy cơ sử dụng thực phẩm, mỹ phẩm hoặc thuốc hết hạn.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="about_goal3">Cung cấp giao diện trực quan, dễ sử dụng trên nhiều thiết bị.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="about_goal4">Giúp người dùng quản lý sản phẩm hiệu quả, tiết kiệm thời gian.</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="about_goal5">Nâng cao ý thức bảo vệ sức khỏe thông qua việc sử dụng sản phẩm còn
+          trong thời gian an toàn</span>
+        </li>
+      </ul>
+    </div>
+    <section class="feedback-form">
+      <h2 data-i18n="about_feedback_title">Góp ý cho ADK Team</h2>
+      <p data-i18n="about_feedback_desc">
+        Chúng tôi rất mong nhận được sự góp của bạn để cải thiện website. Vui
+        lòng nhấn vào nút bên dưới để đóng góp ý kiến
+      </p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSf_Jkq19RC2cjsyxK_dKVbJLdOZYjrCzTkqmpRvk34YoRPH7g/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-feedback"
+        data-i18n="about_feedback_btn"
+      >
+        Đi đến biểu mẫu
+      </a>
+    </section>
+    <a href="index.html" class="nutbam">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-i18n="about_back_btn">Quay về Trang chủ</span>
+    </a>
+    </main>
+    <!-- MODAL THÔNG TIN NGƯỜI DÙNG -->
+    <div class="overlay" id="userOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+        <div class="modal-head">
+          <h3 id="userModalTitle" data-i18n="user_modal_title">Thông tin người dùng</h3>
+          <button type="button" class="modal-close" id="closeUserModal" aria-label="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="uinfo-avatar" id="uinfoAvatar">ND</div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_fullname">Họ và tên</span><span id="uinfoName">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_username">Tên đăng nhập</span><span id="uinfoUsername">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_email">Email</span><span id="uinfoEmail">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_role">Vai trò</span><span id="uinfoRole">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_joindate">Ngày tham gia</span><span id="uinfoJoinDate">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_count">Số sản phẩm đang quản lý</span><span id="uinfoCount">0</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="closeUserBtn2" data-i18n="user_modal_close">Đóng</button>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1101 @@
+/* ========================================================================== 
+   common.css
+   Dùng chung cho toàn bộ site:
+   1) Nút "Cài đặt nhanh" (bánh răng) cạnh nút Đăng xuất, rê chuột đổ xuống
+   2) Chế độ Sáng/Tối áp dụng toàn site (body.dark-mode)
+   ========================================================================== */
+
+:root {
+  --motion-fast: 160ms;
+  --motion-base: 260ms;
+  --motion-slow: 520ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --focus-ring: rgba(13, 125, 121, 0.28);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* -------------------- AUTH ACTIONS -------------------- */
+#navAuth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.auth-nav-link {
+  display: inline-flex;
+  min-height: 42px;
+  padding: 9px 17px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0d8885;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-base) ease,
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.auth-nav-login {
+  background: transparent;
+  color: #0d7d79;
+}
+
+.auth-nav-login:hover {
+  background: #e9f8f6;
+  border-color: #0a716d;
+  color: #08635f;
+  box-shadow: 0 7px 18px rgba(13, 125, 121, 0.14);
+  transform: translateY(-2px);
+}
+
+.auth-nav-register {
+  background: #0d8885;
+  color: #ffffff;
+  box-shadow: 0 7px 18px rgba(13, 125, 121, 0.2);
+}
+
+.auth-nav-register:hover {
+  background: #0a716d;
+  border-color: #0a716d;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(13, 125, 121, 0.28);
+  transform: translateY(-2px);
+}
+
+.auth-nav-link:active {
+  box-shadow: none;
+  transform: translateY(0) scale(0.97);
+}
+
+/* -------------------- 1. SETTINGS DROPDOWN -------------------- */
+.settings-menu {
+  position: relative;
+  display: inline-flex;
+}
+.settings-trigger {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #e0e6e4;
+  background: #ffffff;
+  color: #0d7d79;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(13, 125, 121, 0.08);
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-base) ease,
+    transform var(--motion-base) var(--motion-ease);
+}
+.settings-trigger:hover,
+.settings-menu:hover .settings-trigger {
+  background: #0d7d79;
+  color: #ffffff;
+  border-color: #0d7d79;
+  box-shadow: 0 8px 20px rgba(13, 125, 121, 0.2);
+  transform: rotate(32deg) scale(1.04);
+}
+.settings-trigger:active {
+  transform: rotate(18deg) scale(0.96);
+}
+.settings-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid #eef1f0;
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition:
+    opacity var(--motion-base) ease,
+    visibility var(--motion-base) ease,
+    transform var(--motion-base) var(--motion-ease);
+  z-index: 500;
+}
+/* Vùng đệm để không mất hover khi di chuột từ nút xuống panel */
+.settings-menu::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  height: 14px;
+}
+.settings-menu:hover .settings-panel,
+.settings-menu:focus-within .settings-panel,
+.settings-panel:hover,
+.settings-panel:focus-within {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.settings-panel-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #90a19d;
+  padding: 10px 12px 6px;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition:
+    background-color var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+.settings-row:hover {
+  background: #f4f9f8;
+  transform: translateX(2px);
+}
+.settings-row .label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.settings-row .label i {
+  color: #0d7d79;
+  width: 18px;
+  text-align: center;
+}
+.settings-select {
+  border: 1px solid #e0e6e4;
+  background: #f4f9f8;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: #1f2937;
+  cursor: pointer;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+/* Switch bật/tắt */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #d7ddda;
+  border-radius: 30px;
+  transition:
+    background-color var(--motion-base) ease,
+    box-shadow var(--motion-base) ease;
+}
+.switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform var(--motion-base) var(--motion-ease);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.switch input:checked + .slider {
+  background: #0d7d79;
+}
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+.switch input:focus-visible + .slider {
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+.settings-divider {
+  height: 1px;
+  background: #eef1f0;
+  margin: 8px 4px;
+}
+.settings-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  text-decoration: none;
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    transform var(--motion-fast) ease;
+}
+.settings-link i {
+  color: #0d7d79;
+  width: 18px;
+  text-align: center;
+}
+.settings-link:hover {
+  background: #eef7f6;
+  color: #0d7d79;
+  transform: translateX(2px);
+}
+
+@media (max-width: 720px) {
+  .settings-panel {
+    width: 260px;
+    right: -10px;
+  }
+}
+
+/* -------------------- 2. DARK MODE -------------------- */
+body.dark-mode {
+  background: #0e1614;
+  color: #e5ece9;
+}
+body.dark-mode header:not(.header),
+body.dark-mode .navbar {
+  background: #131f1d;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+}
+body.dark-mode .logo,
+body.dark-mode .nav-links a {
+  color: #e5ece9;
+}
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a.active {
+  color: #2fc7b3;
+}
+body.dark-mode .user-menu {
+  color: #2fc7b3;
+}
+body.dark-mode .auth-nav-login {
+  border-color: #2fc7b3;
+  color: #67dfcf;
+}
+body.dark-mode .auth-nav-login:hover {
+  background: rgba(47, 199, 179, 0.12);
+  border-color: #67dfcf;
+  color: #b2f2e9;
+}
+body.dark-mode .auth-nav-register {
+  background: #15988d;
+  border-color: #15988d;
+}
+body.dark-mode .auth-nav-register:hover {
+  background: #20ad9f;
+  border-color: #20ad9f;
+}
+body.dark-mode .logoutBtn {
+  background: #12615c;
+}
+body.dark-mode .logoutBtn:hover {
+  background: #0e4a46;
+}
+body.dark-mode .settings-trigger {
+  background: #131f1d;
+  border-color: #24322f;
+  color: #2fc7b3;
+}
+body.dark-mode .settings-panel {
+  background: #17211f;
+  border-color: #24322f;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .settings-panel-title {
+  color: #6f8a83;
+}
+body.dark-mode .settings-row:hover {
+  background: #1c2825;
+}
+body.dark-mode .settings-row .label,
+body.dark-mode .settings-link {
+  color: #e5ece9;
+}
+body.dark-mode .settings-link:hover {
+  background: #1c2825;
+  color: #2fc7b3;
+}
+body.dark-mode .settings-select {
+  background: #0e1614;
+  border-color: #24322f;
+  color: #e5ece9;
+}
+body.dark-mode .settings-divider {
+  background: #24322f;
+}
+
+body.dark-mode .card,
+body.dark-mode .panel,
+body.dark-mode .profile-card,
+body.dark-mode .check-card,
+body.dark-mode .about-page,
+body.dark-mode .guide-container,
+body.dark-mode .feedback-form,
+body.dark-mode .stat-card,
+body.dark-mode .modal,
+body.dark-mode .faq-item,
+body.dark-mode .login-box,
+body.dark-mode .support-card,
+body.dark-mode .terms-box {
+  background: #17211f;
+  color: #e5ece9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+body.dark-mode .about-page h2,
+body.dark-mode .guide-container h2,
+body.dark-mode .content h3,
+body.dark-mode .faq-question,
+body.dark-mode .panel-head h2,
+body.dark-mode .card-title,
+body.dark-mode .modal-head h3,
+body.dark-mode .terms-box h2,
+body.dark-mode .support-card h2 {
+  color: #2fc7b3;
+}
+body.dark-mode .content p,
+body.dark-mode .faq-answer,
+body.dark-mode p {
+  color: #a9bab5;
+}
+body.dark-mode .box,
+body.dark-mode .note,
+body.dark-mode .scan-result-info {
+  background: #1c2825;
+}
+body.dark-mode .field input,
+body.dark-mode .form-control,
+body.dark-mode select.filter-select,
+body.dark-mode .search-wrap input,
+body.dark-mode .input input {
+  background: #0e1614;
+  border-color: #24322f;
+  color: #e5ece9;
+}
+body.dark-mode .field label,
+body.dark-mode .uinfo-row span:first-child,
+body.dark-mode .label,
+body.dark-mode .search-wrap i {
+  color: #9db3ad;
+}
+body.dark-mode .btn-ghost {
+  background: #17211f;
+  border-color: #24322f;
+  color: #9db3ad;
+}
+body.dark-mode table thead th {
+  color: #9db3ad;
+  border-color: #24322f;
+}
+body.dark-mode tbody td {
+  border-color: #24322f;
+}
+body.dark-mode tbody tr:hover {
+  background: #1c2825;
+}
+body.dark-mode .uinfo-row {
+  border-color: #24322f;
+}
+body.dark-mode .overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+body.dark-mode footer {
+  background: #0a201f;
+}
+body.dark-mode .toast {
+  background: #123a3c;
+}
+body.dark-mode .chip {
+  background: #17211f;
+  border-color: #24322f;
+  color: #9db3ad;
+}
+body.dark-mode .icon-btn {
+  background: #17211f;
+  border-color: #24322f;
+  color: #9db3ad;
+}
+/* -------------------- LOGIN REQUIRED MODAL -------------------- */
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  backdrop-filter: blur(3px);
+  transition:
+    opacity var(--motion-base) ease,
+    visibility var(--motion-base) ease;
+  z-index: 9999;
+}
+
+.login-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.login-modal {
+  width: 420px;
+  max-width: calc(100% - 30px);
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transition:
+    opacity var(--motion-base) ease,
+    transform var(--motion-base) var(--motion-ease);
+}
+
+.login-overlay.show .login-modal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.login-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #e8f7f6;
+  color: #0d817c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  transform: scale(0.82) rotate(-8deg);
+  transition: transform var(--motion-slow) var(--motion-ease);
+}
+
+.login-overlay.show .login-icon {
+  transform: scale(1) rotate(0);
+}
+
+.login-modal h3 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 22px;
+}
+
+.login-modal p {
+  margin: 0 0 25px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.login-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.login-modal-buttons a,
+.login-modal-buttons button {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-base) ease,
+    transform var(--motion-fast) ease;
+}
+
+.btn-login {
+  background: #0d817c;
+  color: #ffffff;
+}
+
+.btn-login:hover {
+  background: #096c68;
+  box-shadow: 0 8px 20px rgba(13, 129, 124, 0.22);
+  transform: translateY(-2px);
+}
+
+.btn-home {
+  background: #f1f1f1;
+  color: #333333;
+}
+
+.btn-home:hover {
+  background: #e5e5e5;
+  transform: translateY(-2px);
+}
+
+.login-modal-buttons a:active,
+.login-modal-buttons button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Dark mode */
+body.dark-mode .login-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+body.dark-mode .login-modal {
+  background: #17211f;
+  color: #e5ece9;
+}
+
+body.dark-mode .login-modal h3 {
+  color: #2fc7b3;
+}
+
+body.dark-mode .login-modal p {
+  color: #a9bab5;
+}
+
+body.dark-mode .login-icon {
+  background: rgba(47, 199, 179, 0.15);
+  color: #2fc7b3;
+}
+
+body.dark-mode .btn-home {
+  background: #24322f;
+  color: #e5ece9;
+}
+
+body.dark-mode .btn-home:hover {
+  background: #30413d;
+}
+/* -------------------- 2b. DARK MODE — bổ sung cho trang Tính Năng -------------------- */
+body.dark-mode .prod-name {
+  color: #e5ece9;
+}
+body.dark-mode .prod-cat {
+  color: #9db3ad;
+}
+body.dark-mode .modal-close {
+  color: #9db3ad;
+}
+body.dark-mode .modal-close:hover {
+  color: #2fc7b3;
+}
+body.dark-mode .empty-state {
+  color: #7f948e;
+}
+body.dark-mode .toolbar {
+  border-bottom-color: #24322f;
+}
+body.dark-mode .badge.ok {
+  background: rgba(31, 157, 85, 0.18);
+  color: #4ade80;
+}
+body.dark-mode .badge.warn {
+  background: rgba(192, 127, 10, 0.2);
+  color: #fbbf24;
+}
+body.dark-mode .badge.bad {
+  background: rgba(197, 58, 58, 0.2);
+  color: #f87171;
+}
+body.dark-mode .about-page li {
+  background: #1c2825;
+  color: #e5ece9;
+  border-left-color: #2fc7b3;
+}
+/* -------------------- 2d. DARK MODE — bổ sung cho trang Kiểm Tra Ngay -------------------- */
+body.dark-mode .form-group label {
+  color: #e5ece9;
+}
+body.dark-mode .form-group label i {
+  color: #2fc7b3;
+}
+/* -------------------- 2e. DARK MODE — thẻ tổng quan đánh giá -------------------- */
+body.dark-mode .review-summary {
+  background: #17211f;
+  border-left-color: #2fc7b3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+body.dark-mode .review-summary-score {
+  color: #2fc7b3;
+}
+body.dark-mode .review-summary-score .review-summary-max,
+body.dark-mode .review-summary-count {
+  color: #a9bab5;
+}
+body.dark-mode .review-summary-stat {
+  color: #e5ece9;
+}
+body.dark-mode .reviews-subtitle {
+  color: #a9bab5;
+}
+body.dark-mode .reviews {
+  background: #0e1614;
+}
+body.dark-mode .review-card-actions {
+  border-top-color: #24322f;
+}
+body.dark-mode .btn-review-cancel {
+  background: #17211f;
+  border-color: #24322f;
+  color: #a9bab5;
+}
+
+/* -------------------- 3. SHARED INTERACTIONS & MOTION -------------------- */
+.logo i,
+.user-menu,
+.logoutBtn,
+.modal-close,
+.btn-ghost,
+.icon-btn {
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-base) ease,
+    transform var(--motion-fast) ease;
+}
+
+.logo:hover i {
+  transform: rotate(-7deg) scale(1.06);
+}
+
+.nav-links a {
+  transition: color var(--motion-fast) ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  height: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.user-menu:hover {
+  transform: translateY(-1px);
+}
+
+.logoutBtn:hover,
+.btn-ghost:hover,
+.icon-btn:hover {
+  box-shadow: 0 7px 18px rgba(13, 125, 121, 0.16);
+  transform: translateY(-1px);
+}
+
+:where(.logoutBtn, .btn-ghost, .icon-btn, .modal-close):active {
+  box-shadow: none;
+  transform: translateY(0) scale(0.96);
+}
+
+.overlay.show {
+  animation: commonBackdropIn var(--motion-base) ease both;
+}
+
+.overlay.show .modal {
+  animation: commonModalIn var(--motion-slow) var(--motion-ease) both;
+}
+
+.toast {
+  transition:
+    opacity var(--motion-base) ease,
+    transform var(--motion-base) var(--motion-ease);
+  will-change: opacity, transform;
+}
+
+.toast.show {
+  animation: commonToastIn 360ms var(--motion-ease) both;
+}
+
+/* IntersectionObserver in theme.js adds .is-visible while scrolling. */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: none !important;
+  transition:
+    opacity 480ms ease,
+    transform 560ms var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+body.dark-mode :where(.review-form, .review-card, .review-empty, .review-login-prompt) {
+  background: #17211f;
+  color: #e5ece9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode :where(.review-form h3, .review-name) {
+  color: #e5ece9;
+}
+
+body.dark-mode :where(.review-comment, .review-login-prompt) {
+  color: #a9bab5;
+}
+
+@media (hover: hover) {
+  :where(.stat-card, .support-card, .review-card, .faq-item, .check-card, .profile-card) {
+    transition:
+      box-shadow var(--motion-base) ease,
+      border-color var(--motion-fast) ease,
+      transform var(--motion-base) var(--motion-ease);
+  }
+
+  :where(.stat-card, .support-card, .review-card, .faq-item, .check-card, .profile-card):hover {
+    box-shadow: 0 14px 34px rgba(13, 91, 96, 0.12);
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes commonBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes commonModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes commonToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* -------------------- 4. RESPONSIVE NAVIGATION -------------------- */
+@media (max-width: 1180px) {
+  .navbar {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .nav-links {
+    gap: clamp(2px, 1vw, 16px);
+  }
+
+  .nav-links a {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+  }
+
+  .nav-links a::after {
+    right: 10px;
+    left: 10px;
+  }
+
+  #navAuth {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 860px) {
+  .navbar {
+    min-height: 80px;
+    height: auto;
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .navbar .logo {
+    order: 1;
+  }
+
+  #navAuth {
+    order: 2;
+    min-width: 0;
+    margin-left: auto;
+  }
+
+  .navbar > nav {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+    overflow: hidden;
+  }
+
+  .nav-links {
+    width: 100%;
+    padding: 1px 0 5px;
+    justify-content: flex-start;
+    gap: 4px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scroll-snap-type: inline proximity;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .nav-links::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(13, 125, 121, 0.32);
+  }
+
+  .nav-links li {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .nav-links a {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .logo {
+    gap: 6px;
+    font-size: 19px;
+  }
+
+  #navAuth {
+    gap: 6px;
+  }
+
+  .auth-nav-link {
+    min-height: 38px;
+    padding: 7px 10px;
+    border-width: 1px;
+    font-size: 12px;
+  }
+
+  #headerGreeting {
+    display: none;
+  }
+
+  .user-menu {
+    padding: 4px 5px;
+  }
+
+  .user-menu i {
+    font-size: 25px;
+  }
+
+  .logoutBtn {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .settings-trigger {
+    width: 38px;
+    height: 38px;
+  }
+
+  .settings-panel {
+    right: 0;
+    width: min(300px, calc(100vw - 24px));
+    max-height: min(480px, calc(100vh - 90px));
+    overflow-y: auto;
+  }
+
+  .toast {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 460px) {
+  #navAuth {
+    gap: 4px;
+  }
+
+  .auth-nav-link {
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .settings-trigger {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body {
+    opacity: 1 !important;
+  }
+
+  .reveal-item,
+  .reveal-item.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Trang 404 dùng chung với GitHub Pages */
+.not-found-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 197, 0.22), transparent 36%),
+    linear-gradient(145deg, #f2fffd, #e8f7f5);
+}
+
+.not-found-card {
+  width: min(100%, 560px);
+  padding: clamp(32px, 7vw, 64px);
+  border: 1px solid rgba(15, 143, 131, 0.16);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 70px rgba(5, 72, 67, 0.16);
+  text-align: center;
+}
+
+.not-found-card > i {
+  color: #0f8f83;
+  font-size: 56px;
+}
+
+.not-found-code {
+  margin: 18px 0 0;
+  color: #0f8f83;
+  font-size: clamp(56px, 12vw, 92px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.not-found-card h1 {
+  margin: 12px 0 8px;
+  color: #133b38;
+}
+
+.not-found-card > p:not(.not-found-code) {
+  margin: 0 auto 26px;
+  color: #5d706e;
+}
+
+.not-found-card .btn-primary {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f8f83, #14a89a);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(15, 143, 131, 0.22);
+}
+
+body.dark-mode.not-found-page {
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 197, 0.18), transparent 36%),
+    linear-gradient(145deg, #071c1a, #0d2926);
+}
+
+body.dark-mode .not-found-card {
+  border-color: rgba(79, 209, 197, 0.2);
+  background: rgba(12, 38, 35, 0.94);
+}
+
+body.dark-mode .not-found-card h1 {
+  color: #effffb;
+}
+
+body.dark-mode .not-found-card > p:not(.not-found-code) {
+  color: #b8cac7;
+}

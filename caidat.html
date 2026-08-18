@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cập nhật hồ sơ cục bộ, đổi mật khẩu và quản lý dữ liệu ExpiryCheck."
+    />
+    <meta
+      name="keywords"
+      content="cài đặt ExpiryCheck, hồ sơ người dùng, đổi mật khẩu, quản lý tài khoản, dữ liệu cục bộ"
+    />
+    <meta name="theme-color" content="#0f8f83" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <title>Cài Đặt Tài Khoản - ExpiryCheck</title>
+
+    <link rel="stylesheet" href="assets/css/caidat.css" />
+
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="ec-min-h-screen">
+    <header>
+      <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+        <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          <span>ExpiryCheck</span>
+        </a>
+        <nav aria-label="Điều hướng chính">
+          <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="kiemtrahsd.html">Kiểm Tra Ngay</a></li>
+            <li><a href="tinhnang.html" class="require-login">Tính Năng</a></li>
+            <li><a href="huongdan.html">Hướng Dẫn</a></li>
+            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+            <li><a href="hotro.html" data-i18n="nav_support">Hỗ Trợ</a></li>
+          </ul>
+        </nav>
+        <div id="navAuth">
+          <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+          <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="settings-hero">
+      <div class="badge"><i class="fa-solid fa-gear"></i> <span data-i18n="settings_badge">Quản lý tài khoản</span></div>
+      <h1 data-i18n="settings_hero_title">Cài Đặt</h1>
+      <p data-i18n="settings_hero_desc">Cập nhật thông tin cá nhân, đổi mật khẩu và quản lý tài khoản của bạn.</p>
+    </section>
+
+    <main id="main-content" class="ec-w-full">
+      <div class="settings-grid ec-grid ec-grid-cols-1 ec-gap-6 lg:ec-grid-cols-[minmax(220px,0.34fr)_minmax(0,1fr)]">
+        <!-- THẺ HỒ SƠ -->
+        <div class="profile-card">
+          <div class="profile-avatar" id="profileAvatar">ND</div>
+          <h3 id="cardFullName">—</h3>
+          <p id="cardUsername">@—</p>
+          <div class="profile-stat">
+            <b id="cardProductCount">0</b>
+            <span data-i18n="settings_profile_stat">Sản phẩm đang quản lý</span>
+          </div>
+        </div>
+
+        <div class="panels">
+          <!-- THÔNG TIN CÁ NHÂN -->
+          <div class="panel">
+            <div class="panel-head">
+              <div class="icon"><i class="fa-solid fa-id-card"></i></div>
+              <div>
+                <h2 data-i18n="settings_panel1_title">Thông tin cá nhân</h2>
+                <span data-i18n="settings_panel1_desc">Cập nhật họ tên và email của bạn</span>
+              </div>
+            </div>
+            <p class="msg" id="profileMsg"></p>
+            <div class="panel-body">
+              <div class="field">
+                <label data-i18n="settings_username">Tên đăng nhập</label>
+                <input type="text" id="p_username" disabled />
+                <small data-i18n="settings_username_note">Tên đăng nhập không thể thay đổi.</small>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label data-i18n="settings_fullname">Họ và tên</label>
+                  <input type="text" id="p_fullName" placeholder="Họ và tên" data-i18n-placeholder="settings_fullname_ph" />
+                </div>
+                <div class="field">
+                  <label data-i18n="settings_email">Email</label>
+                  <input type="email" id="p_email" placeholder="Email" data-i18n-placeholder="settings_email_ph" />
+                </div>
+              </div>
+            </div>
+            <div class="panel-foot">
+              <button type="button" class="btn-primary" id="saveProfileBtn">
+                <i class="fa-solid fa-check"></i> <span data-i18n="settings_save_profile">Lưu thay đổi</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ĐỔI MẬT KHẨU -->
+          <div class="panel">
+            <div class="panel-head">
+              <div class="icon"><i class="fa-solid fa-lock"></i></div>
+              <div>
+                <h2 data-i18n="settings_panel2_title">Đổi mật khẩu</h2>
+                <span data-i18n="settings_panel2_desc">Nên dùng mật khẩu trên 6 ký tự và không dùng lại mật khẩu cũ</span>
+              </div>
+            </div>
+            <p class="msg" id="passwordMsg"></p>
+            <div class="panel-body">
+              <div class="field">
+                <label data-i18n="settings_old_password">Mật khẩu hiện tại</label>
+                <input type="password" id="p_oldPassword" autocomplete="current-password" placeholder="Mật khẩu hiện tại" data-i18n-placeholder="settings_old_password_ph" />
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label data-i18n="settings_new_password">Mật khẩu mới</label>
+                  <input type="password" id="p_newPassword" autocomplete="new-password" placeholder="Mật khẩu mới" data-i18n-placeholder="settings_new_password_ph" />
+                </div>
+                <div class="field">
+                  <label data-i18n="settings_confirm_password">Xác nhận mật khẩu mới</label>
+                  <input type="password" id="p_confirmPassword" autocomplete="new-password" placeholder="Nhập lại mật khẩu mới" data-i18n-placeholder="settings_confirm_password_ph" />
+                </div>
+              </div>
+            </div>
+            <div class="panel-foot">
+              <button type="button" class="btn-primary" id="savePasswordBtn">
+                <i class="fa-solid fa-key"></i> <span data-i18n="settings_change_password_btn">Đổi mật khẩu</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- VÙNG NGUY HIỂM -->
+          <div class="panel danger">
+            <div class="panel-head">
+              <div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div>
+                <h2 data-i18n="settings_danger_title">Xóa tài khoản</h2>
+                <span data-i18n="settings_danger_desc">Toàn bộ dữ liệu và sản phẩm đã lưu sẽ bị xóa vĩnh viễn</span>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="danger-copy" data-i18n="settings_danger_body">
+                Hành động này không thể hoàn tác. Tất cả sản phẩm bạn đã lưu
+                trong ExpiryCheck sẽ bị xóa cùng với tài khoản.
+              </p>
+            </div>
+            <div class="panel-foot">
+              <button type="button" class="btn-danger" id="openDeleteModal">
+                <i class="fa-solid fa-trash"></i> <span data-i18n="settings_danger_btn">Xóa tài khoản của tôi</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL XÁC NHẬN XÓA TÀI KHOẢN -->
+    <div class="overlay" id="deleteOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+        <div class="modal-head">
+          <h3 id="deleteModalTitle"><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="settings_delete_modal_title">Xác nhận xóa tài khoản</span></h3>
+          <button type="button" class="modal-close" id="closeDeleteModal" aria-label="Đóng hộp thoại">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span data-i18n="settings_delete_modal_body_html">Nhập mật khẩu để xác nhận xóa vĩnh viễn tài khoản</span>
+          <b id="deleteUsernamePreview">—</b> <span data-i18n="settings_delete_modal_suffix">và toàn bộ sản phẩm đã lưu.</span>
+          <div class="field">
+            <label data-i18n="settings_delete_password_label">Mật khẩu</label>
+            <input type="password" id="deletePasswordInput" autocomplete="current-password" placeholder="Nhập mật khẩu" data-i18n-placeholder="settings_delete_password_ph" />
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="cancelDelete" data-i18n="settings_delete_cancel">Hủy</button>
+          <button type="button" class="btn-danger" id="confirmDelete">
+            <i class="fa-solid fa-trash"></i> <span data-i18n="settings_delete_confirm">Xóa vĩnh viễn</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL THÔNG TIN NGƯỜI DÙNG -->
+    <div class="overlay" id="userOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+        <div class="modal-head">
+          <h3 id="userModalTitle" data-i18n="user_modal_title">Thông tin người dùng</h3>
+          <button type="button" class="modal-close" id="closeUserModal" aria-label="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="uinfo-avatar" id="uinfoAvatar">ND</div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_fullname">Họ và tên</span><span id="uinfoName">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_username">Tên đăng nhập</span><span id="uinfoUsername">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_email">Email</span><span id="uinfoEmail">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_role">Vai trò</span><span id="uinfoRole">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_joindate">Ngày tham gia</span><span id="uinfoJoinDate">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_count">Số sản phẩm đang quản lý</span><span id="uinfoCount">0</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="closeUserBtn2" data-i18n="user_modal_close">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+    <script src="assets/js/caidat.js"></script>
+  </body>
+</html>

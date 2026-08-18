@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Trung tâm hỗ trợ, câu hỏi thường gặp và quy định sử dụng ExpiryCheck."
+    >
+    <meta
+      name="keywords"
+      content="ExpiryCheck, hỗ trợ, góp ý, hạn sử dụng, quản lý sản phẩm, ADK Team"
+    >
+    <meta name="theme-color" content="#0f8f83">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <title>Trung Tâm Hỗ Trợ &amp; Quy Định Sử Dụng - ExpiryCheck</title>
+
+    <link rel="stylesheet" href="assets/css/hotro.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+  </head>
+  <body class="ec-min-h-screen">
+    <header>
+      <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+        <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Về trang chủ">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>ExpiryCheck</span>
+        </a>
+        <nav aria-label="Điều hướng chính">
+          <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+            <li><a href="index.html" data-i18n="home">Trang Chủ</a></li>
+            <li><a href="kiemtrahsd.html" data-i18n="check">Kiểm Tra Ngay</a></li>
+            <li><a href="tinhnang.html" data-i18n="features">Tính Năng</a></li>
+            <li><a href="huongdan.html" data-i18n="guide">Hướng Dẫn</a></li>
+            <li><a href="gioithieu.html" data-i18n="about">Giới Thiệu</a></li>
+            <li><a href="hotro.html" class="active" aria-current="page" data-i18n="nav_support">Hỗ Trợ</a></li>
+          </ul>
+        </nav>
+        <div id="navAuth">
+          <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+          <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="support-hero">
+      <h1 data-i18n="support_hero_title">Trung Tâm Hỗ Trợ</h1>
+      <p data-i18n="support_hero_desc">
+        Giải đáp thắc mắc, hướng dẫn liên hệ và quy định sử dụng dịch vụ của
+        ExpiryCheck.
+      </p>
+    </section>
+
+    <main id="main-content">
+      <div class="tab-bar" role="tablist" aria-label="Nội dung hỗ trợ">
+        <button
+          class="tab-btn active"
+          id="btn-tab-support"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-support"
+        >
+          <i class="fa-solid fa-headset"></i> <span data-i18n="support_tab_support">Trung Tâm Hỗ Trợ</span>
+        </button>
+        <button
+          class="tab-btn"
+          id="btn-tab-terms"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-terms"
+        >
+          <i class="fa-solid fa-file-contract"></i> <span data-i18n="support_tab_terms">Quy Định Sử Dụng</span>
+        </button>
+      </div>
+
+      <!-- ================= TRUNG TÂM HỖ TRỢ ================= -->
+      <div class="tab-panel active" id="panel-support" role="tabpanel" aria-labelledby="btn-tab-support">
+        <div class="support-grid">
+          <div class="support-card">
+            <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3 data-i18n="support_card1_title">Hướng dẫn sử dụng</h3>
+            <p data-i18n="support_card1_desc">Xem hướng dẫn từng bước để bắt đầu với ExpiryCheck.</p>
+            <a href="huongdan.html" data-i18n="support_card1_link">Xem hướng dẫn →</a>
+          </div>
+          <div class="support-card">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <h3 data-i18n="support_card2_title">Gửi góp ý</h3>
+            <p data-i18n="support_card2_desc">Đóng góp ý kiến để chúng tôi cải thiện sản phẩm mỗi ngày.</p>
+            <a href="#feedback" data-i18n="support_card2_link">Điền biểu mẫu →</a>
+          </div>
+          <div class="support-card">
+            <div class="icon"><i class="fa-solid fa-user-gear"></i></div>
+            <h3 data-i18n="support_card3_title">Cài đặt tài khoản</h3>
+            <p data-i18n="support_card3_desc">Cập nhật thông tin cá nhân, đổi mật khẩu hoặc xóa tài khoản.</p>
+            <a href="caidat.html" data-i18n="support_card3_link">Đi tới cài đặt →</a>
+          </div>
+        </div>
+
+        <div class="faq-panel">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+              <span data-i18n="support_faq1_q">Làm sao để thêm sản phẩm vào danh sách theo dõi?</span>
+              <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" aria-hidden="true" data-i18n-html="support_faq1_a_html">
+              Vào mục <b>Kiểm Tra Ngay</b>, nhập hoặc quét mã sản phẩm, sau đó
+              nhấn <b>Lưu sản phẩm</b>. Sản phẩm sẽ xuất hiện trong mục
+              <b>Tính Năng</b>.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+              <span data-i18n="support_faq2_q">Không quét được mã vạch thì phải làm sao?</span>
+              <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" aria-hidden="true" data-i18n-html="support_faq2_a_html">
+              Bạn có thể chuyển sang tab <b>Nhập Thủ Công</b> để nhập tên sản
+              phẩm, ngày sản xuất và hạn sử dụng trực tiếp.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+              <span data-i18n="support_faq3_q">ExpiryCheck có lưu dữ liệu của tôi trên máy chủ không?</span>
+              <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" aria-hidden="true" data-i18n="support_faq3_a">
+              Hồ sơ và danh sách sản phẩm được lưu cục bộ trên trình duyệt.
+              Khi bạn quét mã vạch, mã sản phẩm được gửi đến Open Food Facts
+              để tra cứu tên.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+              <span data-i18n="support_faq4_q">Tôi quên mật khẩu thì làm thế nào?</span>
+              <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" aria-hidden="true" data-i18n="support_faq4_a">
+               Vì tài khoản chỉ được lưu trên thiết bị này, ExpiryCheck không
+               thể khôi phục mật khẩu. Bạn có thể xóa dữ liệu trang trong cài
+               đặt trình duyệt để tạo hồ sơ cục bộ mới.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
+              <span data-i18n="support_faq5_q">Làm sao để đổi chế độ sáng/tối hoặc ngôn ngữ?</span>
+              <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" id="faq-answer-5" aria-hidden="true" data-i18n-html="support_faq5_a_html">
+              Nhấn vào biểu tượng bánh răng <i class="fa-solid fa-gear"></i>
+              cạnh nút <b>Đăng xuất</b> ở góc trên bên phải để mở menu
+              <b>Cài đặt nhanh</b>.
+            </div>
+          </div>
+        </div>
+
+        <section class="feedback-section" id="feedback" aria-labelledby="feedback-title">
+          <div class="feedback-intro">
+            <picture class="feedback-visual">
+              <source
+                media="(prefers-reduced-motion: reduce)"
+                srcset="assets/images/ExpiryCheck.jpg"
+              >
+              <img
+                class="feedback-image"
+                src="assets/images/expirycheck-animated.gif"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+                alt="Ảnh động lịch kiểm tra hạn sử dụng, thực phẩm và dấu kiểm an toàn"
+              >
+            </picture>
+            <div>
+              <p class="section-kicker">Góp ý cho đồ án</p>
+              <h2 id="feedback-title">Chia sẻ trải nghiệm của bạn</h2>
+              <p>
+                Hãy cho ADK Team biết điều đang hoạt động tốt và phần nào cần cải thiện.
+                Thông tin hợp lệ sẽ chỉ được lưu trên trình duyệt của thiết bị này.
+              </p>
+              <nav class="feedback-links" aria-label="Liên kết hỗ trợ">
+                <a href="huongdan.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Hướng dẫn sử dụng</a>
+                <a href="mailto:kiet0853366410@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Gửi email</a>
+                <a href="https://github.com/trinhkiet1302/ExpiryCheck" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> Mã nguồn GitHub
+                </a>
+              </nav>
+            </div>
+          </div>
+
+          <form class="feedback-form" id="feedbackForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="feedbackName">Họ và tên <span aria-hidden="true">*</span></label>
+                <input
+                  id="feedbackName"
+                  name="name"
+                  type="text"
+                  minlength="2"
+                  maxlength="80"
+                  autocomplete="name"
+                  aria-describedby="feedbackNameError"
+                  required
+                >
+                <span class="field-error" id="feedbackNameError" aria-live="polite"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="feedbackEmail">Email <span aria-hidden="true">*</span></label>
+                <input
+                  id="feedbackEmail"
+                  name="email"
+                  type="email"
+                  maxlength="120"
+                  autocomplete="email"
+                  inputmode="email"
+                  aria-describedby="feedbackEmailError"
+                  required
+                >
+                <span class="field-error" id="feedbackEmailError" aria-live="polite"></span>
+              </div>
+
+              <div class="form-field form-field-wide">
+                <label for="feedbackTopic">Nội dung cần góp ý <span aria-hidden="true">*</span></label>
+                <select id="feedbackTopic" name="topic" aria-describedby="feedbackTopicError" required>
+                  <option value="">Chọn một nội dung</option>
+                  <option value="giao-dien">Giao diện và trải nghiệm</option>
+                  <option value="tinh-nang">Tính năng kiểm tra hạn dùng</option>
+                  <option value="loi">Báo lỗi</option>
+                  <option value="khac">Ý kiến khác</option>
+                </select>
+                <span class="field-error" id="feedbackTopicError" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <fieldset class="rating-group" aria-required="true" aria-describedby="feedbackRatingError">
+              <legend>Mức độ hài lòng <span aria-hidden="true">*</span></legend>
+              <div class="radio-options">
+                <label><input type="radio" name="rating" value="tot" required> Tốt</label>
+                <label><input type="radio" name="rating" value="binh-thuong"> Bình thường</label>
+                <label><input type="radio" name="rating" value="can-cai-thien"> Cần cải thiện</label>
+              </div>
+              <span class="field-error" id="feedbackRatingError" aria-live="polite"></span>
+            </fieldset>
+
+            <div class="form-field">
+              <label for="feedbackMessage">Nội dung chi tiết <span aria-hidden="true">*</span></label>
+              <textarea
+                id="feedbackMessage"
+                name="message"
+                rows="6"
+                minlength="10"
+                maxlength="1000"
+                aria-describedby="feedbackMessageHelp feedbackMessageError"
+                required
+              ></textarea>
+              <span class="field-help" id="feedbackMessageHelp">Từ 10 đến 1.000 ký tự.</span>
+              <span class="field-error" id="feedbackMessageError" aria-live="polite"></span>
+            </div>
+
+            <div class="consent-field">
+              <label>
+                <input
+                  id="feedbackConsent"
+                  name="consent"
+                  type="checkbox"
+                  aria-describedby="feedbackConsentHelp feedbackConsentError"
+                  required
+                >
+                Tôi đồng ý lưu nội dung góp ý cục bộ trên trình duyệt này.
+              </label>
+              <span class="field-help" id="feedbackConsentHelp">Không có dữ liệu nào được gửi tới máy chủ.</span>
+              <span class="field-error" id="feedbackConsentError" aria-live="polite"></span>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-submit-feedback" type="submit">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Lưu góp ý
+              </button>
+              <button class="btn-reset-feedback" type="reset">Nhập lại</button>
+            </div>
+            <p class="local-storage-note">
+              Đây là biểu mẫu minh họa cho đồ án. Góp ý chỉ được lưu trên thiết bị hiện tại và có thể mất khi xóa dữ liệu trình duyệt.
+            </p>
+            <div class="feedback-status" id="feedbackStatus" role="status" aria-live="polite" tabindex="-1"></div>
+          </form>
+        </section>
+
+        <div class="contact-card">
+          <div>
+            <h3 data-i18n="support_contact_title">Vẫn cần trợ giúp?</h3>
+            <p data-i18n="support_contact_desc">Đội ngũ ADK Team luôn sẵn sàng lắng nghe bạn.</p>
+          </div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf_Jkq19RC2cjsyxK_dKVbJLdOZYjrCzTkqmpRvk34YoRPH7g/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-feedback"
+            data-i18n="support_contact_btn"
+          >
+            Liên hệ ngay
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= QUY ĐỊNH SỬ DỤNG ================= -->
+      <div class="tab-panel" id="panel-terms" role="tabpanel" aria-labelledby="btn-tab-terms" hidden>
+        <div class="terms-box">
+          <span class="updated"
+            ><i class="fa-solid fa-clock"></i> <span data-i18n="terms_updated">Cập nhật lần cuối: 08/2026</span></span
+          >
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-circle-info"></i> <span data-i18n="terms_s1_title">1. Giới thiệu chung</span></h2>
+            <p data-i18n="terms_s1_body">
+              Khi truy cập và sử dụng ExpiryCheck, bạn đồng ý tuân thủ các
+              điều khoản dưới đây. Vui lòng đọc kỹ trước khi sử dụng dịch vụ.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-user-check"></i> <span data-i18n="terms_s2_title">2. Hồ sơ cục bộ</span></h2>
+            <ul>
+              <li data-i18n="terms_s2_i1">Không sử dụng lại mật khẩu quan trọng cho hồ sơ ExpiryCheck.</li>
+              <li data-i18n="terms_s2_i2">Hồ sơ chỉ tồn tại trên thiết bị và trình duyệt bạn đang dùng.</li>
+              <li data-i18n="terms_s2_i3">Không nhập thông tin nhạy cảm không cần thiết.</li>
+            </ul>
+          </div>
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-database"></i> <span data-i18n="terms_s3_title">3. Dữ liệu và quyền riêng tư</span></h2>
+            <p data-i18n="terms_s3_body">
+              Hồ sơ và danh sách sản phẩm được lưu cục bộ trên trình duyệt.
+              Mã vạch được gửi đến Open Food Facts khi bạn yêu cầu tra cứu.
+              Xóa dữ liệu trình duyệt hoặc hồ sơ sẽ làm mất dữ liệu và không
+              thể khôi phục.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="terms_s4_title">4. Giới hạn trách nhiệm</span></h2>
+            <p data-i18n="terms_s4_body">
+              ExpiryCheck hỗ trợ tính toán và nhắc nhở hạn sử dụng dựa trên
+              thông tin do người dùng nhập hoặc tra cứu tự động. Chúng tôi
+              không chịu trách nhiệm cho các thiệt hại phát sinh từ việc sử
+              dụng sản phẩm đã hết hạn nếu thông tin nhập vào không chính xác.
+            </p>
+          </div>
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="terms_s5_title">5. Hành vi bị cấm</span></h2>
+            <ul>
+              <li data-i18n="terms_s5_i1">Sử dụng website vào mục đích trái pháp luật.</li>
+              <li data-i18n="terms_s5_i2">Can thiệp, phá hoại hoặc gây ảnh hưởng đến hoạt động của hệ thống.</li>
+              <li data-i18n="terms_s5_i3">Sao chép, phân phối lại nội dung của ExpiryCheck khi chưa được cho phép.</li>
+            </ul>
+          </div>
+
+          <div class="terms-section">
+            <h2><i class="fa-solid fa-rotate"></i> <span data-i18n="terms_s6_title">6. Thay đổi điều khoản</span></h2>
+            <p data-i18n="terms_s6_body">
+              ADK Team có thể cập nhật quy định sử dụng theo thời gian. Phiên
+              bản mới nhất sẽ luôn được hiển thị tại trang này.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+    <script src="assets/js/hotro.js"></script>
+  </body>
+</html>

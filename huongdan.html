@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hướng dẫn quét mã vạch, kiểm tra và quản lý hạn sử dụng sản phẩm bằng ExpiryCheck."
+    />
+    <meta
+      name="keywords"
+      content="hướng dẫn ExpiryCheck, quét mã vạch, quản lý hạn dùng, trạng thái hạn sử dụng"
+    />
+    <meta name="theme-color" content="#0f8f83" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="assets/images/ExpiryCheck.jpg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <title>Hướng dẫn sử dụng - ExpiryCheck</title>
+
+    <link rel="stylesheet" href="assets/css/huongdan.css" />
+
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="ec-min-h-screen">
+    <header>
+      <div class="navbar ec-mx-auto ec-w-full ec-max-w-screen-2xl ec-gap-3 ec-px-4 sm:ec-px-6 xl:ec-px-8">
+        <a class="logo ec-inline-flex ec-items-center ec-gap-2 ec-no-underline" href="index.html" aria-label="ExpiryCheck - Trang chủ">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          <span>ExpiryCheck</span>
+        </a>
+        <nav aria-label="Điều hướng chính">
+          <ul class="nav-links ec-gap-1 xl:ec-gap-3">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="kiemtrahsd.html">Kiểm Tra Ngay</a></li>
+            <li><a href="tinhnang.html" class="require-login">Tính Năng</a></li>
+            <li><a href="huongdan.html" class="active" aria-current="page">Hướng Dẫn</a></li>
+            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+            <li><a href="hotro.html" data-i18n="nav_support">Hỗ Trợ</a></li>
+          </ul>
+          </nav>
+          <div id="navAuth">
+            <a class="auth-nav-link auth-nav-login" href="dangnhap.html" data-i18n="nav_login">Đăng Nhập</a>
+            <a class="auth-nav-link auth-nav-register" href="dangky.html" data-i18n="nav_register">Đăng Ký</a>
+          </div>
+      </div>
+    </header>
+
+    <!-- Banner -->
+
+    <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <h1 data-i18n="guide_hero_title">Hướng dẫn sử dụng ExpiryCheck</h1>
+
+        <p data-i18n="guide_hero_desc">
+          Chỉ với vài bước đơn giản để kiểm tra và quản lý hạn sử dụng sản phẩm.
+        </p>
+      </div>
+    </section>
+
+    <!-- Nội dung -->
+
+    <section class="guide-container ec-w-[calc(100%-2rem)] lg:ec-max-w-5xl">
+      <h2 data-i18n="guide_section_title">Hướng dẫn sử dụng</h2>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_step1_title">Bước 1. Đăng nhập tài khoản</h3>
+
+          <p data-i18n-html="guide_step1_desc_html">
+            Chọn nút <b>Đăng nhập / Đăng ký</b> ở góc trên bên phải. Nếu chưa có
+            tài khoản hãy đăng ký để sử dụng đầy đủ các chức năng.
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_step2_title">Bước 2. Thêm sản phẩm</h3>
+
+          <p data-i18n="guide_step2_desc">
+            Nhập tên sản phẩm, ngày sản xuất, hạn sử dụng hoặc quét mã
+            QR/Barcode để thêm sản phẩm vào hệ thống.
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-qrcode"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_step3_title">Bước 3. Kiểm tra hạn sử dụng</h3>
+
+          <p data-i18n-html="guide_step3_desc_html">
+            Nhấn nút <b>Kiểm Tra Ngay</b>. Hệ thống sẽ tính số ngày còn lại và
+            hiển thị trạng thái sản phẩm.
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-list-check"></i></div>
+
+        <div class="content">
+          <h3 data-i18n="guide_step4_title">Bước 4. Quản lý danh sách sản phẩm</h3>
+
+          <p data-i18n="guide_step4_desc">
+            Bạn có thể tìm kiếm, lọc theo còn hạn hoặc hết hạn, chỉnh sửa và xóa
+            sản phẩm bất cứ lúc nào.
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_step5_title">Bước 5. Theo dõi sản phẩm</h3>
+
+          <p data-i18n="guide_step5_desc">
+            Kiểm tra thường xuyên để biết sản phẩm còn hạn hay sắp hết hạn nhằm
+            sử dụng an toàn hơn.
+          </p>
+        </div>
+      </div>
+
+      <!-- Chức năng -->
+
+      <h2 class="guide-functions-title" data-i18n="guide_functions_title">Các chức năng chính</h2>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_func1_title">Kiểm tra hạn sử dụng</h3>
+          <p data-i18n="guide_func1_desc">Kiểm tra nhanh trạng thái còn hạn hoặc hết hạn của sản phẩm.</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_func2_title">Quét QR / Barcode</h3>
+          <p data-i18n="guide_func2_desc">Quét mã sản phẩm bằng camera để nhập dữ liệu nhanh hơn.</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icon">
+          <i class="fa-solid fa-database"></i>
+        </div>
+
+        <div class="content">
+          <h3 data-i18n="guide_func3_title">Lưu danh sách sản phẩm</h3>
+          <p data-i18n="guide_func3_desc">Quản lý toàn bộ sản phẩm đã thêm trong cùng một nơi.</p>
+        </div>
+      </div>
+
+      <section class="ec-my-8 ec-overflow-x-auto" aria-label="Bảng hướng dẫn trạng thái hạn sử dụng" tabindex="0">
+        <table class="ec-w-full ec-min-w-[640px] ec-border-collapse ec-text-left">
+          <caption class="ec-mb-3 ec-text-left ec-text-xl ec-font-bold ec-text-teal-800">
+            Bảng hướng dẫn trạng thái hạn sử dụng
+          </caption>
+          <thead class="ec-bg-teal-700 ec-text-white">
+            <tr>
+              <th class="ec-border ec-border-teal-800 ec-p-3" scope="col">Trạng thái</th>
+              <th class="ec-border ec-border-teal-800 ec-p-3" scope="col">Số ngày còn lại</th>
+              <th class="ec-border ec-border-teal-800 ec-p-3" scope="col">Hành động đề xuất</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ec-bg-emerald-50">
+              <th class="ec-border ec-border-slate-300 ec-p-3 ec-text-emerald-800" scope="row">Còn hạn</th>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Trên 7 ngày</td>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Tiếp tục bảo quản đúng hướng dẫn.</td>
+            </tr>
+            <tr class="ec-bg-amber-50">
+              <th class="ec-border ec-border-slate-300 ec-p-3 ec-text-amber-800" scope="row">Sắp hết hạn</th>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Từ 0 đến 7 ngày</td>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Ưu tiên sử dụng và kiểm tra chất lượng.</td>
+            </tr>
+            <tr class="ec-bg-red-50">
+              <th class="ec-border ec-border-slate-300 ec-p-3 ec-text-red-800" scope="row">Đã hết hạn</th>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Nhỏ hơn 0 ngày</td>
+              <td class="ec-border ec-border-slate-300 ec-p-3">Không sử dụng và xử lý sản phẩm an toàn.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- FAQ -->
+
+      <div class="note">
+        <h3 data-i18n="guide_faq_title">Câu hỏi thường gặp</h3>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="guideFaq1Answer">
+            <i class="fa-solid fa-circle-question"></i>
+            <span data-i18n="guide_faq1_q">Không quét được QR thì phải làm sao?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer" id="guideFaq1Answer" role="region" aria-hidden="true">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span data-i18n="guide_faq1_a">Bạn có thể nhập thông tin sản phẩm thủ công để kiểm tra.</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="guideFaq2Answer">
+            <i class="fa-solid fa-circle-question"></i>
+            <span data-i18n="guide_faq2_q">Website có lưu thông tin cá nhân không?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer" id="guideFaq2Answer" role="region" aria-hidden="true">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span data-i18n="guide_faq2_a">Website có lưu thông tin cá nhân, nhưng chỉ trên trình duyệt của
+            chính người dùng (Ví dụ: tên đăng nhập, email, mật khẩu nếu bạn đăng
+            nhập trực tiếp,...)</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="guideFaq3Answer">
+            <i class="fa-solid fa-circle-question"></i>
+            <span data-i18n="guide_faq3_q">Website có miễn phí không?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer" id="guideFaq3Answer" role="region" aria-hidden="true">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span data-i18n="guide_faq3_a">Có. Bạn có thể sử dụng miễn phí.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-cta">
+        <a href="kiemtrahsd.html" class="login-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span data-i18n="guide_cta_btn">Kiểm tra ngay</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- MODAL THÔNG TIN NGƯỜI DÙNG -->
+    </main>
+    <div class="overlay" id="userOverlay" aria-hidden="true" inert>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+        <div class="modal-head">
+          <h3 id="userModalTitle" data-i18n="user_modal_title">Thông tin người dùng</h3>
+          <button type="button" class="modal-close" id="closeUserModal" aria-label="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="uinfo-avatar" id="uinfoAvatar">ND</div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_fullname">Họ và tên</span><span id="uinfoName">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_username">Tên đăng nhập</span><span id="uinfoUsername">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_email">Email</span><span id="uinfoEmail">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_role">Vai trò</span><span id="uinfoRole">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_joindate">Ngày tham gia</span><span id="uinfoJoinDate">—</span>
+          </div>
+          <div class="uinfo-row">
+            <span data-i18n="user_modal_count">Số sản phẩm đang quản lý</span><span id="uinfoCount">0</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-ghost" id="closeUserBtn2" data-i18n="user_modal_close">Đóng</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/motion.js"></script>
+    <script src="assets/js/userinfo.js"></script>
+    <script src="assets/js/huongdan.js"></script>
+  </body>
+</html>
